@@ -1,34 +1,47 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/user/HomePage';
-import EachBook from './pages/user/EachBook';
-import BooksPage from './pages/admin/BooksPage';
-import UpdateBooks from './pages/admin/UpdateBooks';
-import AllUsers from './pages/admin/superadmin/AllUsers';
-import EachUser from './pages/admin/superadmin/EachUser';
-import Contact from './pages/admin/Contact';
-import Login from './pages/user/Login';
-import CreateBook from './pages/admin/CreateBook';
+import { BrowserRouter,  Route,  Routes } from "react-router-dom";
+import HomePage from "./pages/guest/HomePage";
+import BooksPage from "./pages/guest/BooksPage";
+import AboutPage from "./pages/guest/AboutPage";
+import LoginPage from "./pages/guest/LoginPage";
+import BookDetailsPage from "./pages/guest/BookDetailsPage";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/Login' element={<Login />} />
-        <Route path='/' element={<HomePage />} />
-        <Route path='/Contact' element={<Contact />} />
-        <Route path='/Book/:id' element={<EachBook />} />
-        
-        <Route path='/Admin/Books' element={<BooksPage />} />
-        <Route path ='/Admin/CreateBook' element={<CreateBook />}/>
-        <Route path='/Admin/UpdateBook' element={<UpdateBooks />} />
+import ProfilePage from "./pages/guest/ProfilePage";
+import CreateBookPage from "./pages/admin/CreateBook";
+import DashboardPage from "./pages/admin/DashboardPage";
+import AllBooks from "./pages/admin/AllBooks";
+import UpdateBook from "./pages/admin/UpdateBook";
+import UsersPage from "./pages/admin/UsersPage";
+import RegisterPage from "./pages/guest/RegisterPage";
+import FavoritePage from "./pages/guest/FavoritePage";
 
-        <Route path='/Admin/Users' element={<AllUsers />} />
-        <Route path='/Admin/User/:id' element={<EachUser />} />
-         
-      </Routes>
-    </BrowserRouter>
-  );
+
+function App(){
+  return(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/books" element={<BooksPage />} />
+          <Route path="/about" element={<AboutPage />} />
+
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/book/details/:id" element={<BookDetailsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/favorite" element={<FavoritePage />} />
+
+          
+
+                       {/* //Admin// */}
+          <Route path="/admin/" element={<DashboardPage />} />
+          <Route path="/createbook" element={<CreateBookPage />} />
+          <Route path="/allbooks" element={<AllBooks />} />
+          <Route path="/updatebook/:id" element={<UpdateBook />} />
+          <Route path="/users" element={<UsersPage />} />
+
+
+
+        </Routes>
+      </BrowserRouter>
+  )
 }
-
 export default App;
